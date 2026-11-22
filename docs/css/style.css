@@ -1,0 +1,521 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* CONFIGURAÇÕES GERAIS */
+
+body {
+    position: relative;
+    isolation: isolate;
+
+    background: #101014;
+    color: #000000;
+
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    line-height: 1.7;
+}
+
+/* TÍTULOS */
+
+h1, h2, h3 {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #000000;
+}
+
+/* TEXTOS */
+
+p {
+    font-weight: 700;
+    font-size: 17px;
+    color: #ffffff;
+}
+
+/* FUNDO SUBAQUÁTICO */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(16, 16, 20, 0.35),
+            rgba(16, 16, 20, 0.45)
+        ),
+        url("../imagens/ma.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* MENU SUPERIOR */
+
+header {
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.35)
+        ),
+        url("../imagens/fundotopo.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 20px 8%;
+    border-bottom: 1px solid #292936;
+}
+
+nav {
+    background: transparent;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+nav h2 {
+    color: #ffffff;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #00bb36;
+}
+
+/* SEÇÕES */
+
+section {
+    padding: 90px 10%;
+}
+
+section h2 {
+    font-size: 56px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+section p {
+    color: #ffffff;
+    max-width: 650px;
+}
+
+/* SOBRE MIM E HOBBIES */
+
+.sobre-hobbies {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+
+    padding: 90px 10%;
+    align-items: start;
+}
+
+.sobre-hobbies section {
+    padding: 30px;
+
+    background: #000000;
+    border-radius: 16px;
+}
+
+.sobre-hobbies section h2 {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.sobre-hobbies section p {
+    color: #ffffff;
+}
+
+.sobre-hobbies p + p {
+    margin-top: 30px;
+}
+
+/* APRESENTAÇÃO INICIAL */
+
+#inicio {
+    min-height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 90px 10%;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(16, 16, 20, 0.95),
+            rgba(16, 16, 20, 0.65),
+            rgba(16, 16, 20, 0.25)
+        ),
+        url("../imagens/minha-foto.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#inicio h1 {
+    font-size: 52px;
+    max-width: 700px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+#inicio p {
+    color: #ffffff;
+    max-width: 550px;
+}
+
+#inicio a {
+    margin-top: 30px;
+    padding: 12px 28px;
+
+    background-color: #1364fc;
+    color: #ffffff;
+
+    text-decoration: none;
+    border-radius: 10px;
+
+    font-weight: 900;
+
+    transition: 0.3s;
+}
+
+#inicio a:hover {
+    background-color: #000000;
+    transform: translateY(-3px);
+}
+
+/* CARTÕES DE JOGOS */
+
+.cartoes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* CARTÃO */
+
+.cartao {
+    position: relative;
+
+    background-color: #000000;
+
+    min-height: 320px;
+    padding: 25px;
+
+    border: 1px solid #292936;
+    border-radius: 14px;
+
+    overflow: visible;
+
+    transition: 0.4s ease;
+}
+
+/* ÁREA DA LOGO */
+
+.logo-area {
+    position: absolute;
+
+    width: 90%;
+    height: 240px;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.4s ease;
+}
+
+/* IMAGEM */
+
+.game-logo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition: 0.4s ease;
+}
+
+/* DESCRIÇÃO */
+
+.game-info {
+    position: absolute;
+
+    left: 25px;
+    right: 25px;
+    bottom: 20px;
+
+    opacity: 0;
+    transform: translateY(15px);
+
+    transition: 0.4s ease;
+}
+
+.game-info p {
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.7;
+
+    margin-bottom: 12px;
+}
+
+/* EFEITO DO CARTÃO */
+
+.cartao:hover,
+.cartao:focus-within {
+    transform: translateY(-7px);
+    border-color: #ffffff;
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
+}
+
+/* LOGO MENOR AO PASSAR O MOUSE */
+
+.cartao:hover .logo-area,
+.cartao:focus-within .logo-area {
+    width: 250px;
+    height: 100px;
+
+    top: 20px;
+    left: 120px;
+
+    transform: none;
+}
+
+/* APARECIMENTO DA DESCRIÇÃO */
+
+.cartao:hover .game-info,
+.cartao:focus-within .game-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RODAPÉ */
+
+footer {
+    background-color: #000000;
+    text-align: center;
+    padding: 25px;
+    color: #ffffff;
+    border-top: 1px solid #292936;
+}
+
+footer p {
+    color: #ffffff;
+}
+
+/* RESPONSIVIDADE PARA CELULARES */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 20px 5%;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+
+    section {
+        padding: 60px 6%;
+    }
+
+    .sobre-hobbies {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 60px 6%;
+    margin-bottom: 20px;
+    }
+
+    .sobre-hobbies section {
+        padding: 25px;
+    }
+
+    #inicio {
+        min-height: 65vh;
+        padding: 60px 6%;
+        background-position: center;
+    }
+
+    #inicio h1 {
+        font-size: 36px;
+    }
+
+    #inicio p {
+        font-size: 16px;
+    }
+
+    section h2 {
+        font-size: 27px;
+    }
+
+    .cartoes {
+        grid-template-columns: 1fr;
+    }
+
+    .cartao {
+        min-height: 320px;
+        background-color: #000000;
+    }
+
+    .logo-area {
+        width: 145px;
+        height: 100px;
+
+        top: 15px;
+        left: 20px;
+
+        transform: none;
+    }
+
+    .game-info {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+/* ANIMAÇÕES AO ROLAR A PÁGINA */
+
+.revelar {
+    opacity: 0;
+    transform: translateY(40px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.revelar.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* BALÃO DE PRÉ-VISUALIZAÇÃO */
+
+.preview-jogo {
+    position: absolute;
+
+    width: 260px;
+    height: 150px;
+
+    right: -220px;
+    top: 50%;
+
+    transform: translateY(-50%) scale(0.9);
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 10;
+
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+
+    transition: 0.3s ease;
+}
+
+.preview-jogo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.cartao:hover .preview-jogo {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(-50%) scale(1);
+}
+/* BALÃO DE PRÉ-VISUALIZAÇÃO */
+
+.preview-jogo {
+    position: absolute;
+
+    width: 500px;
+    height: 282px;
+
+    top: -270px;
+    left: 50%;
+
+    transform: translateX(-50%) translateY(10px) scale(0.95);
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 20;
+
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+
+    transition: 0.3s ease;
+}
+
+.preview-jogo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.cartao.preview-ativo .preview-jogo {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateX(-50%) translateY(0) scale(1);
+}
